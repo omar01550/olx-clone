@@ -1,0 +1,75 @@
+.page {
+    width: 100%;
+    min-height: 85vh;
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Login {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.Login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    position: relative;
+
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    width: 90px;
+    direction: rtl;
+}
+
+.login-page input {
+    width: 100%;
+    padding: 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 15px;
+    display: block;
+}
+
+.login-page .show-password-icon {
+    position: absolute;
+    left: 22px;
+    top: 17%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00050a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #030b14;
+}
+
+.sign-up-btn {
+    margin-top: 30px;
+    text-align: end;
+}

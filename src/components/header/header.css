@@ -1,0 +1,85 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #f7f8f8;
+    color: black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+header a {
+    display: block;
+}
+
+
+header .logo {
+    font-size: 1.7rem
+}
+
+.header-right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.add-post-btn {
+    background-color: blue;
+    color: white;
+    font-size: 24px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.search-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
+}
+
+
+.header-right>* {
+    padding: 0 15px
+}
+
+.bars-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+.sail {
+    position: relative;
+}
+
+.sail span {
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    transform: translateY(-70%);
+    font-size: 1.3rem
+}
+
+
+@media (max-width:573px) {
+    .bars-icon {
+        display: block;
+    }
+
+    .header-right {
+        display: none;
+    }
+}

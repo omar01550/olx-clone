@@ -1,0 +1,171 @@
+.product-page {
+    margin-top: 2rem;
+    min-height: 80vh;
+}
+
+.product-details {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.product-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.main-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+
+}
+
+.small-images {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.small-images img {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 40px;
+    min-width: 50%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.product-info .love-icon {
+    position: absolute;
+    left: 50px;
+    top: 30px;
+    cursor: pointer;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.product-card h2 {
+    margin: 0;
+}
+
+.price {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.icons i {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.created {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.product-page .user-card {
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-top: 20px;
+}
+
+.product-page .user-card img {
+    width: 80px;
+    height: 80px;
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+
+.product-page .user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-page .user-info>div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.product-page .user-info h3 {
+    margin: 0;
+    padding: 0 20px;
+}
+
+.product-page .love-icon {
+    width: 40px;
+    height: 4pex;
+}
+
+.location {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+}
+
+.bio {
+    margin: 0.5rem 0;
+}
+
+.product-page button.contact-btn {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .product-page {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-images {
+        margin-bottom: 2rem;
+    }
+
+    .product-info {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .user-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-card img {
+        margin-bottom: 1rem;
+    }
+}

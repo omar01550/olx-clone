@@ -1,0 +1,83 @@
+/* Signup.css */
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    min-height: 80vh;
+
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+
+}
+
+label {
+    margin-bottom: 10px;
+    width: 120px;
+    font-size: 0.8rem
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 10px 30px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    direction: ltr;
+}
+
+.show-password-icon {
+    position: absolute;
+    left: 4px;
+    top: 17%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077ff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(14, 1, 1, 0.25);
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    position: relative;
+}
+
+
+button:hover {
+    background-color: #08101c;
+}
+
+@media (max-width:573px) {
+
+    .signup-container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+
+    }
+}

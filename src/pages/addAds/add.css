@@ -1,0 +1,106 @@
+.add-ads-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.add-ads-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.add-ads-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.add-ads-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.add-ads-form input,
+.add-ads-form textarea,
+.add-ads-form button,
+.add-ads-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.add-ads-form textarea {
+    height: 150px;
+}
+
+.add-ads-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-ads-card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.add-ads-card-button {
+    background-color: #01060b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-ads-card-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.add-ads-submit {
+    background-color: #01060b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .add-ads-form input,
+    .add-ads-form textarea,
+    .add-ads-form button,
+    .add-ads-form select {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .add-ads-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+input[type="file"] {}

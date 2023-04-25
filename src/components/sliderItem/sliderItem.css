@@ -1,0 +1,18 @@
+.slider-item {
+    height: 500px;
+    background-color: black;
+    color: white;
+    position: relative;
+
+}
+
+
+
+.slider-item img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+}

@@ -1,0 +1,29 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #f7f8f8;
+    color: #111010;
+    padding: 1rem;
+    position: relative;
+}
+
+
+
+.social-links {
+    display: flex;
+}
+
+.social-links a {
+    margin-right: 1rem;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+}
+
+.copy-right {
+    font-size: 0.8rem;
+}

@@ -1,0 +1,30 @@
+.products {
+    margin: 60px auto;
+    width: 100%;
+    position: relative;
+    min-height: 400px;
+    padding: 2.5rem;
+    background-color: #f7f8f8;
+}
+
+.products__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.products__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .products__list {
+        flex-direction: column;
+
+    }
+}
