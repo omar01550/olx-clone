@@ -15,6 +15,7 @@ function AddAds() {
     const [description, setDescription] = useState("");
     const [site, setSite] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [submitBtn, setSubmitBtn] = useState("انشاء الاعلان")
     const imageInputRef = useRef();
     const [image, setImage] = useState(null);
 
@@ -28,6 +29,7 @@ function AddAds() {
 
     const addNewAds = async (e) => {
         e.preventDefault()
+        setSubmitBtn("جارى انشاء الاعلان")
         let adsCollection = collection(db, "ads")
 
 
@@ -83,12 +85,16 @@ function AddAds() {
                             Route("/")
                         }).catch(() => {
                             console.log('ads not added');
+                        }).finally(() => {
+                            setSubmitBtn("انشاء الاعلان")
                         })
 
 
                     });
             }
         );
+
+
 
 
     }
@@ -134,7 +140,7 @@ function AddAds() {
                     } />
                 </div>
 
-                <button type="submit" className="add-ads-submit">انشاء الاعلان</button>
+                <button type="submit" className="add-ads-submit">{submitBtn} </button>
             </form>
         </div>
     );

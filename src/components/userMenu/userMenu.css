@@ -6,10 +6,8 @@
     padding: 16px;
     width: 200px;
     z-index: 10000;
-    position: absolute;
-    left: 0;
     direction: rtl;
-    top: 60px
+
 }
 
 .menu-header {
@@ -30,6 +28,8 @@
 .username {
     font-size: 18px;
     font-weight: bold;
+    width: 100px;
+    overflow: hidden;
 }
 
 ul {

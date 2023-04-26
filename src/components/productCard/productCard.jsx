@@ -88,6 +88,7 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
 
                 <div className="card__love-icon">
                     <img src={heart || emptyheartImg} alt="notfound" onClick={() => {
+                        console.log(user);
                         if (user != null) {
                             handleFavs()
                         } else {

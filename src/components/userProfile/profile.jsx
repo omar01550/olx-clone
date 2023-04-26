@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./profile.css";
 import userProfileImg from '../../images/iconProfilePicture.7975761176487dc62e25536d9a36a61d.png';
 import dropDownImg from '../../images/dropDown.svg';
@@ -19,7 +19,7 @@ function UserProfile() {
         <div className="user-profile">
             <div className="provifle-images">
                 <Link to="user">
-                    <img className="user-img" src={user.photoURL != null ? user.photoURL : userProfileImg} alt="User" />
+                    <img className="user-img" src={user.photoURL != null ? user.photoURL : ""} alt="User" />
 
                 </Link>
                 <img className="drop-dom-img" src={dropDownImg} alt="User" onClick={handleMenuClick} style={{

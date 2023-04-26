@@ -75,11 +75,50 @@ header .logo {
 
 
 @media (max-width:573px) {
-    .bars-icon {
+    .header {
+        padding: 10px 5px;
+    }
+
+    .header-right {}
+
+    .sail {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 8%;
+
+        z-index: 10000;
+
+    }
+
+
+    /* .header-right .nav-icon,
+    .header-right .search-icon {
+        width: 25px;
+        height: 25px;
+    } */
+
+    /* .bars-icon {
         display: block;
     }
 
     .header-right {
         display: none;
     }
+
+    .sail {
+        position: fixed;
+        z-index: 100000;
+        display: block !important;
+    }
+
+    .sail span {
+        position: absolute;
+        left: 30%;
+        top: 50%;
+        transform: translateY(-70%);
+        font-size: 1.3rem;
+        left: 50%
+    } */
+
 }

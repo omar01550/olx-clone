@@ -42,6 +42,7 @@ const ProductPage = () => {
     }
 
 
+
     function isInFavs(userDetails, id) {
         if (userDetails.ufavs.includes(id)) {
             return true

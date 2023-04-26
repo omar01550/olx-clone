@@ -33,7 +33,7 @@ const Slider = ({ }) => {
 
                 <div className="active slider-item" id="99" ref={sliderItemRef}>
                     <img src={items[activeIndex].imageUrl} alt={items[activeIndex].title} />
-                    <h2>{items[activeIndex].title}</h2>
+
                 </div>
 
             </div>

@@ -142,7 +142,7 @@
     border-radius: 4px;
     cursor: pointer;
     margin-top: 1rem;
-    width: 50%;
+    width: fit-content;
 }
 
 @media (max-width: 768px) {
