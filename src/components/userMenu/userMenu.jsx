@@ -29,7 +29,10 @@ function UserMenu({ userName }) {
             </div>
             <ul>
                 <li>
-                    <Link to="/dashboard">ملفى</Link>
+                    <Link to="/browes-user" onClick={() => {
+                        window.localStorage.browseUser = user.uid;
+
+                    }}>ملفى</Link>
                 </li>
 
                 <li>

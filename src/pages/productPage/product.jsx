@@ -157,7 +157,11 @@ const ProductPage = () => {
                                     <p className="location"></p>
                                     <p className="bio"></p>
                                 </div>
-                                <button className='contact-btn'>Contact {product.displayName}</button>
+                                <button className='contact-btn' onClick={() => {
+                                    Route("/browes-user");
+                                    window.localStorage.browseUser = product.uid;
+
+                                }}>Contact {product.displayName}</button>
                             </div>
                         </div>
 

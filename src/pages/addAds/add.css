@@ -33,6 +33,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    direction: rtl;
 }
 
 .add-ads-form textarea {
@@ -55,6 +56,60 @@
     font-size: 18px;
     margin-bottom: 10px;
 }
+
+/*key words*/
+div.keywords-result {
+    width: 100%;
+    min-height: 0px;
+    padding: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+
+
+}
+
+div.keywords-result .word {
+    padding: 6px 12px;
+    margin: 5px;
+    background-color: #0077ff;
+    border-radius: 5px;
+    color: white;
+    position: relative;
+
+}
+
+
+
+div.keywords-result .word span {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+
+div.add-keword-form {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+div.add-keword-form input {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 17px;
+}
+
+.add-word {
+    padding: 10px 20px;
+    background-color: #01060b;
+}
+
 
 .add-ads-card-button {
     background-color: #01060b;

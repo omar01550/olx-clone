@@ -107,7 +107,9 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
                     <span>جنيه  </span>
                 </h4>
 
-                <Link className="user-info" to="/user-profile" id={userId}>
+                <Link className="user-info" to="/browes-user" id={userId} onClick={() => {
+                    window.localStorage.browseUser = userId;
+                }}>
                     <img src={userPhoto} alt="not found" className='user-image' />
                     <p className='user-name'>{userName}</p>
                 </Link>

@@ -18,7 +18,10 @@ function UserProfile() {
     return (
         <div className="user-profile">
             <div className="provifle-images">
-                <Link to="user">
+                <Link to="browes-user" onClick={() => {
+                    window.localStorage.browseUser = user.uid;
+
+                }}>
                     <img className="user-img" src={user.photoURL != null ? user.photoURL : ""} alt="User" />
 
                 </Link>

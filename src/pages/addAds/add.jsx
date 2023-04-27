@@ -5,19 +5,25 @@ import { addDoc, collection, doc, getFirestore, setDoc } from 'firebase/firestor
 import { useNavigate } from 'react-router-dom';
 import { getStorage, ref, addImageToStorage, uploadBytes, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import { useRef } from 'react';
+// input phone number
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+
 
 function AddAds() {
 
     const [title, setTitle] = useState("");
     const [categoty, setcategory] = useState("");
     const [price, setPrice] = useState("");
-    const [keywords, setKeyWords] = useState("");
+    const [keywords, setKeyWords] = useState([]);
     const [description, setDescription] = useState("");
     const [site, setSite] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [submitBtn, setSubmitBtn] = useState("انشاء الاعلان")
     const imageInputRef = useRef();
     const [image, setImage] = useState(null);
+
+    const keywordsInput = useRef();
 
 
 
@@ -107,11 +113,51 @@ function AddAds() {
                 <label htmlFor="ads-name">العنوان</label>
                 <input type="text" id="ads-name" name="ads-name" required onKeyUp={e => setTitle(e.target.value)} />
 
-                <label htmlFor="ads-category"> ادخل الفقه</label>
+                <label htmlFor="ads-category"> ادخل الفئة</label>
                 <input type="text" id="ads-category" name="ads-category" required onKeyUp={e => setcategory(e.target.value)} />
 
                 <label htmlFor="ads-keywords">كلمات مفتاحيه </label>
-                <input type="text" id="ads-keywords" name="ads-keywords" required onKeyUp={e => setKeyWords(e.target.value)} />
+                <div className="keywords-result">
+                    {
+                        keywords.length != 0
+                            ? keywords.map(word => {
+                                return (
+                                    <div className="word">
+                                        <h3>{word}</h3>
+                                        <span onClick={() => {
+
+                                            setKeyWords(keywords.filter(ele => ele != word))
+                                        }}>x</span>
+
+                                    </div>
+                                )
+                            })
+                            : ""
+
+                    }
+                </div>
+                <div className="add-keword-form">
+                    <input type="text" name="ads-word-input" ref={keywordsInput} placeholder='ادخل كلمات مفتاحية ' />
+                    <button className="add-word" onClick={() => {
+                        if (keywordsInput.current.value != 0) {
+                            // if word is not found
+                            if (!keywords.includes(keywordsInput.current.value)) {
+                                setKeyWords([...keywords, keywordsInput.current.value]);
+                            } else {
+                                // we well do alert
+                                alert('word is already found found');
+
+                            }
+                        } else {
+                            alert("the input is empty")
+                        }
+
+                        keywordsInput.current.value = ''
+
+                    }}>
+                        add
+                    </button>
+                </div>
 
                 <label htmlFor="ads-description">وصف الاعلان </label>
                 <textarea id="ads-description" name="ads-description" required onKeyUp={e => setDescription(e.target.value)}></textarea>
@@ -119,14 +165,25 @@ function AddAds() {
                 <label htmlFor="ads-price" >السعر بالجنيه المصرى</label>
                 <input type="number" id="ads-price" name="ads-price" min="0" required onKeyUp={e => setPrice(e.target.value)} />
 
-                <div className="add-ads-card">
+                {/* <div className="add-ads-card">
                     <h4 className="add-ads-card-title">ادخل موقعك</h4>
                     <button className="add-ads-card-button">  اختيار الموقع الحالى</button>
-                </div>
+                </div> */}
 
                 <div className="add-ads-card">
                     <h4 className="add-ads-card-title">ادخل رقم هاتفك </h4>
                     <input type="tel" className="add-ads-card-input" name="phone-number" required onKeyUp={e => setPhoneNumber(e.target.value)} />
+                    {/* <PhoneInput
+                        placeholder="Enter phone number"
+                        value={phoneNumber.toString()}
+                        onChange={(e) => {
+
+                            setPhoneNumber(1550180558)
+
+                        }}
+
+                    /> */}
+
                 </div>
 
                 <div className="add-ads-uoload-img">

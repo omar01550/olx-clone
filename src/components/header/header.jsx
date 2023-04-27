@@ -23,13 +23,13 @@ function Header() {
             </h1>
             <div className="header-right">
 
-                <Link to="/search">
+                {/* <Link to="/search">
                     <img src={SearchImg} className="search-icon" />
-                </Link>
+                </Link> */}
 
-                <Link to="/notifications">
+                {/* <Link to="/notifications">
                     <img className="nav-icon" src={notavigationImg} alt="Navigation" />
-                </Link>
+                </Link> */}
 
 
                 {

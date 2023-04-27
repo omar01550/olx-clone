@@ -18,6 +18,8 @@ import ProductPage from './pages/productPage/product';
 import Signup from './pages/auth/signup/signin';
 import AddAds from './pages/addAds/add';
 import NavigationMenu from './components/navMenu/navMeny';
+import Example from './components/phoneEvample/a';
+import BrowseUser from './components/browesUser/browse';
 
 
 // Import the functions you need from the SDKs you need
@@ -102,6 +104,10 @@ function App() {
                     user ? <AddAds /> : <Navigate to="/login" />
                   } />
 
+                  <Route path="/browes-user" element={<BrowseUser />} />
+
+
+
 
 
                 </Routes>
@@ -113,6 +119,8 @@ function App() {
 
 
       <Footer />
+
+
 
 
 
