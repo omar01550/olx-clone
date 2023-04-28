@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./header.css";
 import SearchImg from '../../images/search.png';
 //components
@@ -15,10 +15,13 @@ import { userContext } from "../../App";
 function Header() {
 
     const [user, setUserName] = useContext(userContext)
+    const Route = useNavigate();
 
     return (
         <header className="header container">
-            <h1 className="logo">
+            <h1 className="logo" onClick={() => {
+                Route("/")
+            }}>
                 اعلانى
             </h1>
             <div className="header-right">

@@ -1,6 +1,7 @@
 .product-page {
     margin-top: 2rem;
     min-height: 80vh;
+    padding-bottom: 50px;
 }
 
 .product-details {
@@ -55,6 +56,10 @@
     left: 50px;
     top: 30px;
     cursor: pointer;
+}
+
+.product-page .ads-title {
+    width: 70%;
 }
 
 .product-card {
@@ -167,5 +172,38 @@
 
     .user-card img {
         margin-bottom: 1rem;
+
     }
+
+
+
+
+    .product-page .ads-title {
+        width: 90%;
+    }
+}
+
+
+
+
+
+
+@media (min-width: 767px) and (max-width: 991px) {
+
+
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+
+    .product-page .ads-title {
+        width: 90%;
+
+    }
+
 }

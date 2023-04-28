@@ -1,12 +1,24 @@
+import sliderOneImg from '../../images/slider1.jpg'
+import sliderTowImg from '../../images/slider2.jpg'
+import sliderThreeImg from '../../images/slider3.jpg'
 import React, { useEffect, useReducer, useRef } from 'react';
 import './slider.css';
 
 const Slider = ({ }) => {
-    const items = [
-        { title: "ali", imageUrl: "https://images.olx.com.eg/thumbnails/52992736-800x600.webp" },
-        { title: "hossam", imageUrl: "https://images.olx.com.eg/thumbnails/19751806-800x600.webp" },
-        { title: "omar", imageUrl: "https://images.olx.com.eg/thumbnails/19751810-800x600.webp" }
+    const itemsForPc = [
+        { imageUrl: "https://images.olx.com.eg/thumbnails/52992736-800x600.webp" },
+        { imageUrl: "https://images.olx.com.eg/thumbnails/19751806-800x600.webp" },
+        { imageUrl: "https://images.olx.com.eg/thumbnails/19751810-800x600.webp" }
     ];
+
+    const itemsForMobile = [
+        { imageUrl: sliderOneImg },
+        { imageUrl: sliderTowImg },
+        { imageUrl: sliderThreeImg }
+    ];
+
+    const items = window.innerWidth >= 767 ? [...itemsForPc] : [...itemsForMobile];
+
 
     const sliderItemRef = useRef();
     const [activeIndex, setActiveIndex] = React.useState(1);

@@ -71,9 +71,9 @@ div.keywords-result {
 }
 
 div.keywords-result .word {
-    padding: 6px 12px;
+    padding: 5px 20px;
     margin: 5px;
-    background-color: #0077ff;
+    background-color: #010509;
     border-radius: 5px;
     color: white;
     position: relative;
@@ -84,8 +84,8 @@ div.keywords-result .word {
 
 div.keywords-result .word span {
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 4px;
+    top: -8px;
     font-size: 1rem;
     cursor: pointer;
 

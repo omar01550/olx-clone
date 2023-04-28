@@ -1,7 +1,7 @@
 // Signup.js
 
 import React, { useContext, useRef, useState } from 'react';
-import { appContext, authContext, userContext } from '../../../App';
+import { appContext, authContext, userContext, userDetailsContext } from '../../../App';
 import './signup.css';
 import { createUserWithEmailAndPassword, getMultiFactorResolver, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage";
@@ -22,6 +22,7 @@ function Signup() {
     const [submitBtn, setSubmitBtn] = useState("اشتراك")
     const auth = useContext(authContext);
     const [user, setUser] = useContext(userContext)
+    const [userDetails, setUserDetails] = useContext(userDetailsContext);
     const app = useContext(appContext);
     const db = getFirestore(app);
     const userImageInput = useRef();
@@ -48,7 +49,7 @@ function Signup() {
                 // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                 getDownloadURL(uploadTask.snapshot.ref)
                     .then((downloadURL) => {
-                        console.log('image uploaded');
+
                         console.log(downloadURL);
 
                         updateUserProfile(user, downloadURL || "");
@@ -90,9 +91,19 @@ function Signup() {
             ufavs: []
 
         }).then(() => {
-            console.log("user addde to db");
+            setUserDetails({
+                displayName: user.displayName,
+                uid: user.uid,
+                photoURL: user.photoURL,
+                date: Date.now(),
+                email: user.email,
+                ufavs: []
+            });
+
+
+
         }).catch(() => {
-            console.log('user not added to db');
+
         })
 
 

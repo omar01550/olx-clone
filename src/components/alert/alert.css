@@ -1,0 +1,27 @@
+.alert {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    width: 50%;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+
+}
+
+.success {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.warning {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+.error {
+    background-color: #f44336;
+    color: #fff;
+}

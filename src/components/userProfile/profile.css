@@ -43,6 +43,10 @@ li {
     padding: 8px;
 }
 
+.drop-dom-img {
+    cursor: pointer;
+}
+
 li:hover {
     background-color: #f7f8f8;
 }

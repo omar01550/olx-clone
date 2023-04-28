@@ -84,6 +84,9 @@
     font-size: 1.3rem;
     text-transform: capitalize;
     color: gray;
+    height: 70px;
+    text-transform: hidden;
+    overflow: hidden;
 }
 
 /* user  */

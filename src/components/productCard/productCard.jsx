@@ -16,10 +16,12 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
 
     // let docRef = doc(db, 'users', userDetails.uid);
 
+
+
     const Route = useNavigate("");
 
     const handleFavs = async () => {
-        if (userDetails != null) {
+        if (user.uid) {
             setHeart(loadingImg)
             if (isInFavs(userDetails, id)) {
                 removeFromFavs()

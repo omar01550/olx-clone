@@ -29,7 +29,7 @@ const ProductPage = () => {
 
     // handle favs
     const handleFavs = async () => {
-        if (userDetails != null) {
+        if (user) {
             setHeart(loadingImg)
             if (isInFavs(userDetails, productid)) {
                 removeFromFavs()
@@ -124,7 +124,7 @@ const ProductPage = () => {
                             </div>
                             <div className="product-info">
                                 <div className="product-card">
-                                    <h2>{product.title}</h2>
+                                    <h2 className='ads-title'>{product.title}</h2>
                                     <p className="price">
                                         {product.price}
                                         <span></span>
@@ -143,7 +143,7 @@ const ProductPage = () => {
                                             }
                                         } />
                                     </div>
-                                    <p cl assName="created">10:10</p>
+                                    {/* <p cl assName="created">10:10</p> */}
                                 </div>
 
                             </div>

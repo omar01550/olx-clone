@@ -143,6 +143,7 @@ function AddAds() {
                             // if word is not found
                             if (!keywords.includes(keywordsInput.current.value)) {
                                 setKeyWords([...keywords, keywordsInput.current.value]);
+                                keywordsInput.current.focus()
                             } else {
                                 // we well do alert
                                 alert('word is already found found');

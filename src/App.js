@@ -20,6 +20,7 @@ import AddAds from './pages/addAds/add';
 import NavigationMenu from './components/navMenu/navMeny';
 import Example from './components/phoneEvample/a';
 import BrowseUser from './components/browesUser/browse';
+import Alert from './components/alert/alert';
 
 
 // Import the functions you need from the SDKs you need
@@ -67,9 +68,7 @@ function App() {
     }
   }, [user]);
 
-  useEffect(() => {
-    console.log(userDetails);
-  }, [userDetails])
+
 
 
   return (
@@ -116,6 +115,8 @@ function App() {
           </userContext.Provider>
         </authContext.Provider>
       </BrowserRouter>
+
+
 
 
       <Footer />

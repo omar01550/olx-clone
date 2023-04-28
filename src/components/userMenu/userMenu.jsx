@@ -35,9 +35,9 @@ function UserMenu({ userName }) {
                     }}>ملفى</Link>
                 </li>
 
-                <li>
+                {/* <li>
                     <Link to="/settings">المفضلة</Link>
-                </li>
+                </li> */}
                 <li>
                     <Link to="/" onClick={Logout}>تسجيل الخروج</Link>
 
