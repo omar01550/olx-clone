@@ -1,7 +1,8 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useReducer, useRef, useState } from 'react';
 import emptyheartImg from '../../images/empty-heart.png';
 import heartImg from '../../images/heart.png';
 import loadingImg from '../../images/loading.png'
+import LikeSound from '../../sounds/Facebook Like - Sound Effect _ ProSounds(M4A_128K).m4a';
 
 import './productCard.css';
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,6 +14,8 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
     const [user, setUser] = useContext(userContext);
     const [userDetails, setUserDetails] = useContext(userDetailsContext);
     const [heart, setHeart] = useState();
+    const LikeBtnRef = useRef();
+
 
     // let docRef = doc(db, 'users', userDetails.uid);
 
@@ -36,11 +39,13 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
 
     function isInFavs(userDetails, id) {
         if (userDetails.ufavs.includes(id)) {
+
             return true
         } else {
             return false;
         }
     }
+
 
     const addToFavs = async () => {
         updateDoc(doc(db, "users", userDetails.uid), {
@@ -50,11 +55,26 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
             getUserDetails(userDetails.uid)
                 .then((user) => {
                     setUserDetails(user)
+
                 })
         })
 
+        // update ads likes 
 
-    }
+        // try {
+        //     updateDoc(doc(db, 'ads', id), {
+        //         usersLikes: arrayUnion(userDetails.uid),
+        //         likes: increment(1)
+        //     }).then(() => {
+
+        //     })
+
+        // } catch (error) {
+        //     alert(error)
+        // }
+
+
+    };
 
     const removeFromFavs = async () => {
         updateDoc(doc(db, "users", userDetails.uid), {
@@ -68,6 +88,16 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
 
         })
 
+        // try {
+        //     updateDoc(doc(db, 'ads', id), {
+        //         usersLikes: arrayRemove(userDetails.uid),
+        //         likes: increment(-1)
+        //     })
+        // } catch (error) {
+        //     alert(error)
+        // }
+
+
         console.log('remove works');
     }
     useEffect(() => {
@@ -79,8 +109,11 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
         }
     }, [userDetails])
 
+
+
     return (
         <div className="card" id={id}>
+
             <div className="card__image-wrapper">
 
                 <img src={image} alt={title} className="card-image" onClick={() => {

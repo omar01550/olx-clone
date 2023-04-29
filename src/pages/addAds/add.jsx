@@ -47,6 +47,8 @@ function AddAds() {
     }
 
 
+
+
     async function uploadImage() {
         let imageName = `ad/${user.displayName}/${Math.floor(Math.random() * 1000000)}.jpg`;
         const storageRef = ref(storage, imageName);
@@ -156,7 +158,7 @@ function AddAds() {
                         keywordsInput.current.value = ''
 
                     }}>
-                        add
+                        اضافه
                     </button>
                 </div>
 
@@ -188,8 +190,8 @@ function AddAds() {
                 </div>
 
                 <div className="add-ads-uoload-img">
-                    <h4 className="add-ads-card-title">ادخل رقم هاتفك </h4>
-                    <input type="file" className="add-ads-card-input" name="ads-image" ref={imageInputRef} required onChange={e =>
+                    <h4 className="add-ads-card-title"> ارفاق صوره الاعلان  </h4>
+                    <input type="file" className="add-ads-card-input" name="ads-image" accept='image/*' ref={imageInputRef} required onChange={e =>
                         () => {
                             console.log('fileChange');
 

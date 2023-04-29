@@ -50,10 +50,10 @@ const Slider = ({ }) => {
 
             </div>
             <button className="slider-left" onClick={slideLeft}>
-                &#10094;
+                &#10095;
             </button>
             <button className="slider-right" onClick={slideRight}>
-                &#10095;
+                &#10094;
             </button>
         </div>
     );

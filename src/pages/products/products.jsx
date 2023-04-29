@@ -57,6 +57,18 @@ const Products = ({ products }) => {
 
     }, []);
 
+    onSnapshot(adsCollection, () => {
+        getAds("ads")
+            .then((docs) => {
+                setAds(docs)
+            }).catch((err) => {
+                setErr(true)
+                console.log(err);
+            });
+
+    });
+
+
     useEffect(() => {
 
     })
