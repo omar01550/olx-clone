@@ -54,7 +54,7 @@ const BrowseUser = () => {
                     ? (
                         <div className="browes-user">
                             <div className="user-info">
-                                <img className="user-image" src={user.photoURL} alt="User Image" />
+                                <img className="user-image" src={user.photoURL || "https://firebasestorage.googleapis.com/v0/b/react-ecommerce-7fe5c.appspot.com/o/ad%2Fomar%2F958092.jpg?alt=media&token=0bca8dde-0133-4975-a434-4499ee2c5e53"} alt="User Image" />
                                 <h3 className="user-name">{user.displayName}</h3>
                             </div>
                             <div className="user-products">

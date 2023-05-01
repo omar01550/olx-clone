@@ -21,6 +21,7 @@ import NavigationMenu from './components/navMenu/navMeny';
 import Example from './components/phoneEvample/a';
 import BrowseUser from './components/browesUser/browse';
 import Alert from './components/alert/alert';
+import SearchPage from './pages/search/search';
 
 
 // Import the functions you need from the SDKs you need
@@ -57,14 +58,19 @@ function App() {
   const [userDetails, setUserDetails] = useState(null);
 
   onAuthStateChanged(auth, (user) => {
-    setUser(user)
+    setUser(user);
+    //console.log('work');
   });
 
   useEffect(() => {
     if (user) {
-      getUserDetails(user.uid).then((data) => {
-        setUserDetails(data)
+      getDoc(doc(db, 'users', user.uid)).then((res) => {
+        console.log(res.data());
+        setUserDetails(res.data())
+      }).catch(() => {
+
       })
+
     }
   }, [user]);
 
@@ -104,6 +110,8 @@ function App() {
                   } />
 
                   <Route path="/browes-user" element={<BrowseUser />} />
+                  <Route path="/search" element={<SearchPage />} />
+
 
 
 

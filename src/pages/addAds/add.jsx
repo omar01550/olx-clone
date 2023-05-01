@@ -1,5 +1,7 @@
 import React, { useContext, useDebugValue, useEffect, useState } from 'react';
 import './add.css';
+import UploadImage from '../../images/upload2.png';
+
 import { appContext, authContext, userContext } from '../../App';
 import { addDoc, collection, doc, getFirestore, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
@@ -22,6 +24,7 @@ function AddAds() {
     const [submitBtn, setSubmitBtn] = useState("انشاء الاعلان")
     const imageInputRef = useRef();
     const [image, setImage] = useState(null);
+    const [uploadText, setUploadText] = useState("upload image")
 
     const keywordsInput = useRef();
 
@@ -191,13 +194,19 @@ function AddAds() {
 
                 <div className="add-ads-uoload-img">
                     <h4 className="add-ads-card-title"> ارفاق صوره الاعلان  </h4>
-                    <input type="file" className="add-ads-card-input" name="ads-image" accept='image/*' ref={imageInputRef} required onChange={e =>
-                        () => {
-                            console.log('fileChange');
+                    <input type="file" className="add-ads-card-input" name="ads-image" accept='image/*' ref={imageInputRef} required onChange={e => {
+                        setUploadText(e.target.files[0].name);
+                    }
 
-                        }
 
                     } />
+
+                    <button onClick={() => {
+                        imageInputRef.current.click()
+                    }} className='custom-image-uploader'>
+                        <p>{uploadText}</p>
+                        <img src={UploadImage} alt="not found" className='upload-image-icon' />
+                    </button>
                 </div>
 
                 <button type="submit" className="add-ads-submit">{submitBtn} </button>

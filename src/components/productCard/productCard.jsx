@@ -1,13 +1,19 @@
-import React, { useCallback, useContext, useEffect, useReducer, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useReducer, useRef, useState, memo } from 'react';
 import emptyheartImg from '../../images/empty-heart.png';
 import heartImg from '../../images/heart.png';
 import loadingImg from '../../images/loading.png'
 import LikeSound from '../../sounds/Facebook Like - Sound Effect _ ProSounds(M4A_128K).m4a';
+import avatarImage from '../../images/iconProfilePicture.7975761176487dc62e25536d9a36a61d.png';
+
+
 
 import './productCard.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { authContext, db, getUserDetails, userContext, userDetailsContext } from '../../App';
 import { FieldValue, arrayRemove, arrayUnion, doc, getDoc, increment, updateDoc } from 'firebase/firestore';
+
+
+
 
 const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) => {
 
@@ -16,10 +22,11 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
     const [heart, setHeart] = useState();
     const LikeBtnRef = useRef();
 
-
     // let docRef = doc(db, 'users', userDetails.uid);
+    useEffect(() => {
+        console.log(userDetails);
 
-
+    })
 
     const Route = useNavigate("");
 
@@ -98,7 +105,6 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
         // }
 
 
-        console.log('remove works');
     }
     useEffect(() => {
         if (userDetails != null) {
@@ -123,7 +129,6 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
 
                 <div className="card__love-icon">
                     <img src={heart || emptyheartImg} alt="notfound" onClick={() => {
-                        console.log(user);
                         if (user != null) {
                             handleFavs()
                         } else {
@@ -145,7 +150,7 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
                 <Link className="user-info" to="/browes-user" id={userId} onClick={() => {
                     window.localStorage.browseUser = userId;
                 }}>
-                    <img src={userPhoto} alt="not found" className='user-image' />
+                    <img src={userPhoto || avatarImage} alt="not found" className='user-image' />
                     <p className='user-name'>{userName}</p>
                 </Link>
             </div>
@@ -170,4 +175,4 @@ const ProductCard = ({ image, title, price, userPhoto, userName, userId, id }) =
     );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

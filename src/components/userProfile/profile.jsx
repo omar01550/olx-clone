@@ -22,7 +22,7 @@ function UserProfile() {
                     window.localStorage.browseUser = user.uid;
 
                 }}>
-                    <img className="user-img" src={user.photoURL != null ? user.photoURL : ""} alt="User" />
+                    <img className="user-img" src={user.photoURL != null ? user.photoURL : "https://firebasestorage.googleapis.com/v0/b/react-ecommerce-7fe5c.appspot.com/o/ad%2Fomar%2F958092.jpg?alt=media&token=0bca8dde-0133-4975-a434-4499ee2c5e53"} alt="User" />
 
                 </Link>
                 <img className="drop-dom-img" src={dropDownImg} alt="User" onClick={handleMenuClick} style={{

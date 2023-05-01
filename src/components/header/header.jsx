@@ -7,7 +7,7 @@ import UserProfile from "../userProfile/profile";
 import notavigationImg from '../../images/notavigation.svg';
 import sailImg from '../../images/iconSellBorder_noinline.d9eebe038fbfae9f90fd61d971037e02.svg'
 import BarsImg from '../../images/bars.png';
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import { userContext } from "../../App";
 
 
@@ -59,4 +59,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default memo(Header);

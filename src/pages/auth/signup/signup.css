@@ -46,13 +46,14 @@ input {
     cursor: pointer;
 }
 
-button {
+.signup-container button,
+div.custom-image-uploader {
     margin-top: 20px;
     padding: 10px;
     width: 100%;
     border: none;
     border-radius: 5px;
-    background-color: #0077ff;
+    background-color: #01060b;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
@@ -66,6 +67,8 @@ button {
     position: relative;
 }
 
+
+#image {}
 
 button:hover {
     background-color: #08101c;

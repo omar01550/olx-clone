@@ -6,7 +6,7 @@
     height: 380x;
     margin: 20px;
     background-color: white;
-    border-radius: 7px;
+    border-radius: 10px;
 
 }
 
@@ -19,6 +19,7 @@
     width: 100%;
     height: 230px;
     overflow: hidden;
+    border-radius: inherit;
 }
 
 .card-image {
@@ -30,6 +31,7 @@
     transition: transform 0.3s ease-in-out;
     display: no;
     cursor: pointer;
+    border-radius: inherit;
 }
 
 .card-image:hover {
@@ -47,11 +49,13 @@
     transition: color 0.3s ease-in-out;
     width: fit-content;
     height: fit-content;
+    border-radius: inherit;
 }
 
 .card__love-icon img {
     width: 35px;
     height: 35px;
+    border-radius: inherit;
 }
 
 .card__love-icon:hover {
@@ -64,7 +68,8 @@
 /* card price */
 .card-price {
     font-weight: bold;
-    font-size: 30px
+    font-size: 30px;
+    color: rgba(9, 10, 7, 0.836);
 }
 
 .card-price span {
@@ -73,20 +78,22 @@
 
 /* card price */
 /* card info */
-.card-info {
+.card .card-info {
     width: 100%;
     padding: 10px;
-    background-color: rgb(192, 200, 201);
+    background-color: rgb(242, 246, 247);
 
 }
 
 .card .card-info .card-title {
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-transform: capitalize;
-    color: gray;
+    color: rgba(9, 10, 7, 0.836);
     height: 70px;
-    text-transform: hidden;
+    width: 100%;
     overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 /* user  */
@@ -101,6 +108,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border-bottom-color: transparent !important;
 
 
 }

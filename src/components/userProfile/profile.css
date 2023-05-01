@@ -1,5 +1,5 @@
 .user-profile {
-    position: relative;
+
     display: inline-block;
 
 }
@@ -16,7 +16,7 @@
 }
 
 .user-menu {
-    position: fixed;
+    position: absolute;
     left: 50px;
     top: 70px;
     width: 300px;

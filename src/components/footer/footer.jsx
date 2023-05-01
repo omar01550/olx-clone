@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './footer.css';
 import facebookImg from '../../images/facebook.png'
 import gitHubImg from '../../images/github.png'
@@ -23,4 +23,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default memo(Footer);

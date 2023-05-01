@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { memo, useContext, useEffect, useState } from 'react';
 import './product.css';
 import productImage from '../../images/iconSellBorder_noinline.d9eebe038fbfae9f90fd61d971037e02.svg'
 import emptyheartImg from '../../images/empty-heart.png';
@@ -105,7 +105,8 @@ const ProductPage = () => {
         }).catch((err) => {
             console.log(err);
         });
-    }, [])
+    }, []);
+
 
     return (
         <div className="product-page">
@@ -177,6 +178,6 @@ const ProductPage = () => {
     );
 };
 
-export default ProductPage;
+export default memo(ProductPage);
 
 
