@@ -21,7 +21,7 @@ const Slider = ({ }) => {
 
 
     const sliderItemRef = useRef();
-    const [activeIndex, setActiveIndex] = React.useState(1);
+    const [activeIndex, setActiveIndex] = React.useState(2);
     const numItems = items.length;
 
     const slideLeft = () => {

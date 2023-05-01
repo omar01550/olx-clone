@@ -108,6 +108,7 @@ div.add-keword-form input {
 .add-word {
     padding: 10px 20px;
     background-color: #01060b;
+    margin-top: 15px
 }
 
 
@@ -155,6 +156,10 @@ div.add-keword-form input {
     .add-ads-card {
         width: 100%;
         max-width: 300px;
+    }
+
+    .add-ads-container {
+        padding-bottom: 70px;
     }
 }
 

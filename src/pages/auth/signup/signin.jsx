@@ -27,8 +27,19 @@ function Signup() {
     const auth = useContext(authContext);
     const [user, setUser] = useContext(userContext)
     const [userDetails, setUserDetails] = useContext(userDetailsContext);
-    const [uploadText, setUploadText] = useState("upload Image")
+    const [uploadText, setUploadText] = useState("ضع صوره")
     const [userImage, setUserImg] = useState(null);
+    // validation
+    const [emailValidation, setEmailValidation] = useState({
+        status: false, message: ""
+    });
+    const [passwordValidation, setPasswordValidation] = useState({
+        status: false,
+        message: ""
+
+    });
+
+
     const app = useContext(appContext);
     const db = getFirestore(app);
     const userImageInput = useRef();
@@ -36,14 +47,6 @@ function Signup() {
 
     // const route = useNavigate("");
 
-    useEffect(() => {
-        console.log(userImage);
-        console.log('user image changed');
-    }, userImage)
-
-    useEffect(() => {
-        console.log('rrender');
-    })
 
 
     async function uploadImage(file) {
@@ -54,8 +57,9 @@ function Signup() {
 
 
         uploadTask.on('state_changed',
-            (snapshot) => {
 
+            (snapshot) => {
+                setUploadText("...انتظر")
             },
             (error) => {
 
@@ -64,7 +68,7 @@ function Signup() {
 
                 // Handle successful uploads on complete
                 // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                setUploadText("...انتظر")
+
                 getDownloadURL(uploadTask.snapshot.ref)
                     .then((downloadURL) => {
 
@@ -92,7 +96,7 @@ function Signup() {
 
     const addUserToDb = async (user) => {
         let userId = user.uid;
-        console.log(userId);
+
         const docRef = doc(db, "users", userId);
         setDoc(docRef, {
             displayName: userName,
@@ -116,7 +120,7 @@ function Signup() {
 
 
             }).catch((err) => {
-                console.log(err);
+                alert(err)
             })
 
 
@@ -129,44 +133,48 @@ function Signup() {
             <h2> انشا حسابك الان </h2>
             <form onSubmit={(e) => {
                 e.preventDefault()
-                console.log("clicked");
-                createUserWithEmailAndPassword(auth, email, password)
-                    .then((res) => {
-                        let user = res.user;
-                        setUser(user);
 
-                        updateProfile(user, {
-                            displayName: userName,
-                            photoURL: userImage
-                        }).then(() => {
+                // check validation
+                if (emailValidation.status && passwordValidation.status) {
+                    createUserWithEmailAndPassword(auth, email, password)
+                        .then((res) => {
+                            let user = res.user;
+                            setUser(user);
 
-                            addUserToDb(auth.currentUser).then(() => {
-                                console.log('user added to db');
-                            }).catch((err) => {
-                                console.log('user not added');
-                                console.log(err);
+                            updateProfile(user, {
+                                displayName: userName,
+                                photoURL: userImage
+                            }).then(() => {
+
+                                addUserToDb(auth.currentUser).then(() => {
+
+                                }).catch((err) => {
+                                    alert(err)
+                                })
+
+                                setUser(auth.currentUser)
+
+
+
+                            }).catch(() => {
+
                             })
 
-                            setUser(auth.currentUser)
-
-
-
-                        }).catch(() => {
-                            console.log("ipdate profile for user not done");
                         })
 
-                    })
-
-                    .catch((err) => {
-                        alert(err)
-                        setSubmitBtn("اشتراك")
-                    })
+                        .catch((err) => {
+                            alert(err)
+                            setSubmitBtn("اشتراك")
+                        })
 
 
-                setSubmitBtn("جارى التسجيل");
+                    setSubmitBtn("جارى التسجيل");
+
+                } else {
+                    alert("خطا فى البريد او كلمهة السر")
+                }
 
 
-                console.log(userImageInput.current.files[0]);
 
             }}>
                 <div className="form-group">
@@ -175,13 +183,36 @@ function Signup() {
                 </div>
 
                 <div className="form-group">
+
                     <label htmlFor="email">الايميل</label>
-                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder='enter your email' />
+                    <span className="validaion-message email-validation">{emailValidation.message}</span>
+                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder='enter your email' onBlur={() => {
+                        let regxp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                        if (regxp.test(email)) {
+                            setEmailValidation({ status: true, message: "" })
+                        } else {
+                            setEmailValidation({ status: false, message: "البريد الالكترونى غير صالح" });
+                        }
+
+                    }} />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="password">كلمه المرور</label>
-                    <input type={passwordType} id="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder='add your password' />
+                    <span className='validaion-message password-validation'>{passwordValidation.message}</span>
+                    <input type={passwordType} id="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder='add your password' onBlur={() => {
+                        let regxp = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$/;
+
+                        if (regxp.test(password)) {
+                            setPasswordValidation({ status: true, message: "" })
+                        } else if (password.length <= 7) {
+                            setPasswordValidation({ status: false, message: "يحب الا تقل كلمه المرور عن 8 احرف    " });
+                        }
+                        else {
+                            setPasswordValidation({ status: false, message: "اضف احرف كبيره وصغيره" });
+                        }
+
+                    }} />
 
                     <img src={eyeImg} alt="" className='show-password-icon' onClick={() => {
                         if (passwordType == 'password') {
@@ -201,17 +232,18 @@ function Signup() {
                     <div onClick={() => {
                         userImageInput.current.click()
                     }} className='custom-image-uploader'>
-                        <p>{uploadText}</p>
-                        <img src={userImage || UploadImage} alt="not found" className='upload-image-icon' />
+                        <p className='upload-text'>{uploadText}</p>
+                        <img src={userImage || UploadImage} alt="not found" className='upload-image-icon' style={{
+                            width: userImage != null ? "200px" : "80px",
+                            height: userImage != null ? "200px" : "80px"
+                        }} />
                     </div>
                     <input type="file" id="image" ref={userImageInput} onChange={(e) => {
-                        setUploadText(e.target.files[0] ? e.target.files[0].name : "");
+                        // setUploadText(e.target.files[0] ? e.target.files[0].name : "");
 
                         if (e.target.files) {
-                            console.log('start uploading');
+
                             uploadImage(e.target.files[0]);
-                        } else {
-                            console.log('files in empty');
                         }
 
 

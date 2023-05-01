@@ -61,10 +61,31 @@ div.custom-image-uploader {
     cursor: pointer;
 }
 
+.upload-text {
+    font-size: 1.2rem;
+}
+
+div.custom-image-uploader img {
+    width: 200px;
+    height: 200px;
+}
+
 .form-group {
     margin-bottom: 20px;
     display: flex;
     position: relative;
+}
+
+.form-group span {
+    position: absolute;
+    left: 0;
+    top: -30px;
+    color: rgb(204, 109, 109);
+    padding-bottom: 0px;
+    direction: rtl;
+
+    width: 75%;
+
 }
 
 
